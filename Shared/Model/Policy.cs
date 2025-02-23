@@ -4,6 +4,10 @@ namespace Shared.Model;
 
 public class Policy
 {
+    public Policy()
+    {
+    }
+
     public Policy(PolicyModel policy)
     {
         PolicyNumber = policy.PolicyNumber;

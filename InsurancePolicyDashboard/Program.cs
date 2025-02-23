@@ -1,4 +1,5 @@
 using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using PolicyDomain.Services;
 using PolicyDomain.Validators;
@@ -20,6 +21,8 @@ builder.Services.AddDbContextFactory<PolicyContext>(options =>
 });
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining(typeof(PolicyValidator));
 
 builder.Services.AddTransient<IPolicyRepository, PolicyRepository>();
