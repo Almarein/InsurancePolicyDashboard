@@ -6,9 +6,26 @@ namespace PolicyDomain.Utilities;
 public class PolicyGenerator
 {
     private const string Characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    private readonly string[] _policyTypes = ["Car", "Business", "Home", "Life"];
+    private readonly string[] _policyTypes;
     private readonly string[] _statuses = ["Active", "Expired", "Cancelled"];
     private readonly Random _random = new ();
+
+    public PolicyGenerator(int policyTypeCount)
+    {
+        _policyTypes = new string[policyTypeCount];
+        for (var i = 0; i < policyTypeCount; i++)
+        {
+            _policyTypes[i] = GenerateRandomString(5);
+        }
+    }
+    
+    public IEnumerable<Policy> Generate(int amount)
+    {
+        for (var i = 0; i < amount; i++)
+        {
+            yield return Generate();
+        }
+    }
     
     public Policy Generate()
     {
