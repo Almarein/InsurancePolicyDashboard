@@ -1,5 +1,6 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using InsurancePolicyDashboard.Filters;
 using Microsoft.EntityFrameworkCore;
 using PolicyDomain.Services;
 using PolicyDomain.Validators;
@@ -20,7 +21,10 @@ builder.Services.AddDbContextFactory<PolicyContext>(options =>
         });
 });
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<ApplicationExceptionFilter>();
+});
 
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining(typeof(PolicyValidator));
