@@ -25,11 +25,9 @@
     build:
       context: InsurancePolicyDashboard/ClientApp
       dockerfile: Dockerfile
-    image: insurancepolicydashboard.client
-    container_name: insurancepolicydashboard.client
+    image: insurancepolicydashboard.ui
+    container_name: insurancepolicydashboard.ui
     network_mode: host
-    ports:
-      - "5000:5000"
     depends_on:
       - insurancepolicydashboard.api
     volumes:

@@ -1,13 +1,7 @@
-﻿FROM node:23-bullseye as build
-
+﻿FROM node:alpine as build
 WORKDIR /app
-
-COPY . .
-
+COPY package.json .
 RUN npm install
-
 COPY . .
-
 EXPOSE 5000
-
 CMD ["npm", "run", "dev"]
