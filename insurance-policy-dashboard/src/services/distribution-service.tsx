@@ -1,4 +1,4 @@
-import {Policy} from '../models/policy.tsx';
+import {Policy} from '../models/policy';
 
 interface Distribution {
     [factor: string]: number;

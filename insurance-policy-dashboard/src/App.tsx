@@ -1,11 +1,11 @@
 import './App.css';
-import {Provider} from "react-redux";
-import {store} from "./store/store.tsx";
-import {PolicyDashboard} from "./pages/policy-dashboard.tsx";
+import {Provider} from 'react-redux';
+import {store} from './store/store';
+import {PolicyDashboard} from './pages/policy-dashboard';
 
-const App = ()=> (
+const App = () => (
     <Provider store={store}>
-        <PolicyDashboard />
+        <PolicyDashboard/>
     </Provider>
 )
 

@@ -1,9 +1,10 @@
 import {useSelector} from 'react-redux';
 import {useMemo} from 'react';
-import {State} from '../store/store.tsx';
-import {Policy} from '../models/policy.tsx';
+import {State} from '../store/store';
+import {Policy} from '../models/policy';
 import {LineChart} from '@mui/x-charts/LineChart';
-import {getPolicyDistribution} from '../services/distribution-service.tsx';
+import {getPolicyDistribution} from '../services/distribution-service';
+import { Stack, Typography } from '@mui/material';
 
 export const PolicyActivationChart = () => {
     const policies = useSelector((state: State) => state.policy.filteredPolicyList);
@@ -29,24 +30,27 @@ export const PolicyActivationChart = () => {
     }, [policies]);
 
     return (
-        <LineChart
-            dataset={chartData}
-            xAxis={[{
-                dataKey: 'year',
-                scaleType: 'linear',
-                tickMinStep: 1,
-                label: 'Year',
-                valueFormatter: (year: number) => year.toString()
-            }]}
-            yAxis={[{
-                min: 0,
-                dataKey: 'policyActivations',
-                tickMinStep: 1,
-                label: 'Policy activations'
-            }]}
-            series={[{dataKey: 'policyActivations'}]}
-            height={300}
-            width={500}
-        />
+        <Stack direction='column' spacing={3} sx={{ alignItems: 'center' }}>
+            <Typography sx={{ fontSize: 20 }}>Policy activations</Typography>
+            <LineChart
+                dataset={chartData}
+                xAxis={[{
+                    dataKey: 'year',
+                    scaleType: 'linear',
+                    tickMinStep: 1,
+                    label: 'Year',
+                    valueFormatter: (year: number) => year.toString()
+                }]}
+                yAxis={[{
+                    min: 0,
+                    dataKey: 'policyActivations',
+                    tickMinStep: 1,
+                    label: 'Policy activations'
+                }]}
+                series={[{dataKey: 'policyActivations'}]}
+                height={300}
+                width={500}
+            />
+        </Stack>
     )
 }

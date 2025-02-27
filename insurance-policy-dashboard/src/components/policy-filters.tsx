@@ -1,8 +1,8 @@
 import {Stack, Typography} from '@mui/material'
-import {PolicyTypeFilter} from './filters/policy-type-filter.tsx';
-import {PremiumAmountFilter} from './filters/premium-amount-filter.tsx';
-import {ActivationDateFilter} from './filters/activation-date-filter.tsx';
-import {PolicyStatusFilter} from './filters/policy-status-filter.tsx';
+import {PolicyTypeFilter} from './filters/policy-type-filter';
+import {PremiumAmountFilter} from './filters/premium-amount-filter';
+import {ActivationDateFilter} from './filters/activation-date-filter';
+import {PolicyStatusFilter} from './filters/policy-status-filter';
 
 export const PolicyFilters = () => {
     return (

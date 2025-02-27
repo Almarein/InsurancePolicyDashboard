@@ -1,10 +1,10 @@
 import {Stack} from '@mui/material'
 import {DatePicker, LocalizationProvider} from '@mui/x-date-pickers';
 import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
-import {State, store} from '../../store/store.tsx';
+import {State, store} from '../../store/store';
 import {useSelector} from 'react-redux';
 import dayjs from 'dayjs';
-import {applyActivationDateEndFilter, applyActivationDateStartFilter} from '../../store/policy-slice.tsx';
+import {applyActivationDateEndFilter, applyActivationDateStartFilter} from '../../store/policy-slice';
 
 export const ActivationDateFilter = () => {
     const dateStart = useSelector((state: State) => state.policy.filters.activationDateStart);

@@ -1,8 +1,8 @@
 import {Slider, Stack, Typography} from '@mui/material';
-import {State, store} from '../../store/store.tsx';
+import {State, store} from '../../store/store';
 import {useEffect, useMemo} from 'react';
 import {useSelector} from 'react-redux';
-import {applyPremiumAmountFilter} from '../../store/policy-slice.tsx';
+import {applyPremiumAmountFilter} from '../../store/policy-slice';
 
 export const PremiumAmountFilter = () => {
     const policies = useSelector((state: State) => state.policy.policyList);

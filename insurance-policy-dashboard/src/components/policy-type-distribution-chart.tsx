@@ -1,8 +1,9 @@
 import {useSelector} from 'react-redux';
 import {useMemo} from 'react';
-import {State} from '../store/store.tsx';
+import {State} from '../store/store';
 import {PieChart} from '@mui/x-charts/PieChart';
-import {getPolicyDistribution} from '../services/distribution-service.tsx';
+import {getPolicyDistribution} from '../services/distribution-service';
+import {Stack, Typography} from '@mui/material';
 
 interface ChartData {
     label: string;
@@ -23,12 +24,15 @@ export const PolicyTypeDistributionChart = () => {
     }, [policies]);
 
     return (
-        <PieChart
-            series={[{
-                data: chartData
-            }]}
-            height={300}
-            width={500}
-        />
+        <Stack direction="column" spacing={3} sx={{alignItems: 'center'}}>
+            <Typography sx={{fontSize: 20}}>Type distribution</Typography>
+            <PieChart
+                series={[{
+                    data: chartData
+                }]}
+                height={300}
+                width={500}
+            />
+        </Stack>
     )
 }

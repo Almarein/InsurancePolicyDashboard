@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {getPolicyList} from '../services/policy-service.tsx';
-import {Policy} from '../models/policy.tsx';
-import {applyPolicyFilters, PolicyFilters} from '../services/policy-filter-service.tsx';
+import {getPolicyList} from '../services/policy-service';
+import {Policy} from '../models/policy';
+import {applyPolicyFilters, PolicyFilters} from '../services/policy-filter-service';
 import dayjs from 'dayjs';
 
 interface PolicyState {

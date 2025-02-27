@@ -1,8 +1,8 @@
 import {FormControl, InputLabel, Select, MenuItem, Checkbox, ListItemText, OutlinedInput, SelectChangeEvent} from '@mui/material'
-import {State, store} from '../../store/store.tsx';
+import {State, store} from '../../store/store';
 import {useSelector} from 'react-redux';
 import {useMemo} from 'react';
-import {applyPolicyTypeFilter} from '../../store/policy-slice.tsx';
+import {applyPolicyTypeFilter} from '../../store/policy-slice';
 
 export const PolicyTypeFilter = () => {
     const policies = useSelector((state: State) => state.policy.policyList);

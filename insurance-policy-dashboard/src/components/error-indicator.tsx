@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux';
-import {State} from '../store/store.tsx';
+import {State} from '../store/store';
 import {Snackbar} from '@mui/material';
 import {useEffect, useState} from 'react';
 
