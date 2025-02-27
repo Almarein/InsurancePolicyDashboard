@@ -1,0 +1,36 @@
+﻿services:
+  insurancepolicydashboard.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+      - ASPNETCORE_HTTP_PORTS=3000
+      - ASPNETCORE_HTTPS_PORTS=3001
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=123
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/insurancepolicydashboard.pfx
+    container_name: insurancepolicydashboard.api
+    image: insurancepolicydashboard.api
+    build:
+      context: .
+      dockerfile: InsurancePolicyDashboard/Dockerfile
+    ports:
+      - "3000:3000"  
+      - "3001:3001"
+    volumes:
+      - ~/.aspnet/https:/https:ro
+  insurancepolicydashboard.ui:
+    environment:
+      - WATCHPACK_POLLING=true
+      - HTTPS=true
+      - SSL_CRT_FILE=/https/insurancepolicydashboard.pem
+      - SSL_KEY_FILE=/https/insurancepolicydashboard.key
+    build:
+      context: InsurancePolicyDashboard/ClientApp
+      dockerfile: Dockerfile
+    image: insurancepolicydashboard.client
+    container_name: insurancepolicydashboard.client
+    network_mode: host
+    ports:
+      - "5000:5000"
+    depends_on:
+      - insurancepolicydashboard.api
+    volumes:
+      - ~/.aspnet/https:/https:ro
